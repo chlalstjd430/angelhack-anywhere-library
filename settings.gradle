@@ -1,2 +1,4 @@
 rootProject.name = 'anywhere-library'
-
+include('anywhere-library-application')
+include('anywhere-library-domain-rds')
+include('anywhere-library-core')
