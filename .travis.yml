@@ -6,6 +6,12 @@ branches:
   only:
     - develop
 
+deploy:
+  provider: heroku
+  api_key:
+    secure: ${HEROKU_API}
+  app: angelhack-anywehre-library
+
 notifications:
   email:
     recipients:
