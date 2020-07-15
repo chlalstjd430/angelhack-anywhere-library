@@ -77,4 +77,4 @@ project(':anywhere-library-core') {
     }
 }
 
-task stage(dependsOn: ['build', 'clean'])
+apply from: file("$rootProject.projectDir/gradle/heroku/stage.gradle")
