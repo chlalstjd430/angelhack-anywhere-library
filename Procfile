@@ -1,0 +1,1 @@
+web: java -jar build/libs/anywhere-library-application-1.0.jar
