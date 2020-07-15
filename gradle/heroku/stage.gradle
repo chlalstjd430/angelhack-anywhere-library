@@ -1,0 +1,8 @@
+task stage(
+        dependsOn: [
+                'clean',
+                'anywhere-library-application',
+                'anywhere-library-domain-rds',
+                'anywhere-library-core'
+        ]
+)
