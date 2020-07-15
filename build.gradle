@@ -76,5 +76,3 @@ project(':anywhere-library-core') {
 
     }
 }
-
-task stage(dependsOn: ['build', 'clean'])
