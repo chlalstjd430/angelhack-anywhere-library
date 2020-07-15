@@ -76,3 +76,5 @@ project(':anywhere-library-core') {
 
     }
 }
+
+apply from: file("$rootProject.projectDir/gradle/heroku/stage.gradle")
