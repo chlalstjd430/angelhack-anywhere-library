@@ -1,6 +1,6 @@
 package com.anglehack.anywhereLibrary.exception;
 
-public abstract class CanHaveStatusException extends Exception {
+public abstract class CanHaveStatusException extends Error {
     private int status;
     private String message;
 
