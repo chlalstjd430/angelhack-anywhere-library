@@ -1,6 +1,8 @@
 package com.anglehack.anywhereLibrary.api.user.controller;
 
+import com.anglehack.anywhereLibrary.api.user.request.SignInRequest;
 import com.anglehack.anywhereLibrary.api.user.request.SignUpRequest;
+import com.anglehack.anywhereLibrary.api.user.response.CheckDuplicateResponse;
 import com.anglehack.anywhereLibrary.api.user.response.SignInResponse;
 import com.anglehack.anywhereLibrary.token.JwtTokenProvider;
 import com.anglehack.anywhereLibrary.user.dto.UserInfo;
@@ -35,5 +37,36 @@ public class UserController {
                 .accessToken(JwtTokenProvider.getInstance().generateAccessKey(user, secretKey, expirationDate))
                 .refreshToken(JwtTokenProvider.getInstance().generateRefreshToken(user, secretKey))
                 .build();
+    }
+
+    @ApiOperation("로그인")
+    @PostMapping("/user/sign-in")
+    @ResponseStatus(HttpStatus.OK)
+    public SignInResponse signIn(@RequestBody SignInRequest signInRequest){
+        User user = userService.signIn(signInRequest.getIdentification(), signInRequest.getPassword());
+
+        return SignInResponse.builder()
+                .userInfo(UserInfo.of(user))
+                .accessToken(JwtTokenProvider.getInstance().generateAccessKey(user, secretKey, expirationDate))
+                .refreshToken(JwtTokenProvider.getInstance().generateRefreshToken(user, secretKey))
+                .build();
+    }
+
+    @ApiOperation("아이디 중복 체크")
+    @GetMapping("/user/verification/identification/{identification}")
+    @ResponseStatus(HttpStatus.OK)
+    public CheckDuplicateResponse checkDuplicateIdentification(@PathVariable String identification) {
+        userService.checkDuplicateUserIdentification(identification);
+
+        return new CheckDuplicateResponse("사용 가능한 아이디입니다.");
+    }
+
+    @ApiOperation("닉네임 중복 체크")
+    @GetMapping("/user/verification/nickname/{nickname}")
+    @ResponseStatus(HttpStatus.OK)
+    public CheckDuplicateResponse checkDuplicateUserNickname(@PathVariable String nickname) {
+        userService.checkDuplicateUserNickname(nickname);
+
+        return new CheckDuplicateResponse("사용 가능한 닉네임입니다.");
     }
 }
