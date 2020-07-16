@@ -16,7 +16,7 @@ build/
 
 ### IntelliJ IDEA ###
 .idea
-.idea/
+.idea/**
 *.iws
 *.iml
 *.ipr
@@ -38,4 +38,4 @@ out/
 
 
 ### gradle ###
-.gradle/
+.gradle/**
