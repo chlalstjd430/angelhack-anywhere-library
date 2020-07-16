@@ -4,6 +4,7 @@ import com.anglehack.anywhereLibrary.common.entity.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -27,8 +28,4 @@ public class User extends BaseTimeEntity {
     private String hashedPassword;
 
     private String universityName = "none";
-
-    private int learningHour = 0;
-
-    private int learningMinute = 0;
 }

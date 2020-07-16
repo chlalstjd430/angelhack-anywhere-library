@@ -1,4 +1,4 @@
-package com.anglehack.anywhereLibrary.token.dto;
+package com.anglehack.anywhereLibrary.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

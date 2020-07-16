@@ -4,7 +4,7 @@ import com.anglehack.anywhereLibrary.exception.ConflictException;
 
 public class UserNicknameDuplicateException extends ConflictException {
     public UserNicknameDuplicateException() {
-        this("user nickname is already exist");
+        this("user nickname is duplicated");
     }
 
     public UserNicknameDuplicateException(String message) {

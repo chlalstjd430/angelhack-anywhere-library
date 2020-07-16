@@ -7,22 +7,18 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Builder
-public class UserInfo {
+public class SimpleUser {
     private long id;
     private String identification;
     private String nickname;
     private String universityName;
-    private int learningHour;
-    private int learningMinute;
 
-    public static UserInfo of(User user) {
-        return UserInfo.builder()
+    public static SimpleUser of(User user) {
+        return SimpleUser.builder()
                 .id(user.getId())
                 .identification(user.getIdentification())
                 .nickname(user.getNickname())
                 .universityName(user.getUniversityName())
-                .learningHour(user.getLearningHour())
-                .learningMinute(user.getLearningMinute())
                 .build();
     }
 }
