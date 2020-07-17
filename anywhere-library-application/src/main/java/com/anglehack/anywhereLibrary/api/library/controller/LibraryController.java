@@ -55,7 +55,7 @@ public class LibraryController {
         @RequestParam(required = false, defaultValue = "12") int size
     ) {
         List<SimpleLibrary> libraries = new ArrayList<>();
-        Page<Library> searchResult = libraryService.findAll(PageRequest.of(currentPage, size, Sort.by("name").descending()));
+        Page<Library> searchResult = libraryService.findAll(PageRequest.of(currentPage, size, Sort.by("name").ascending()));
         searchResult.getContent().forEach(
             library -> {
                 if (library != null)

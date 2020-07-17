@@ -11,5 +11,7 @@ import java.util.Optional;
 public interface SeatRepository extends ExtendRepository<Seat> {
     boolean existsByUserId(Long userId);
 
+    Optional<Seat> findByIdAndLibraryId(Long seatId, Long libraryId);
+
     List<Seat> findAllByLibraryId(Long libraryId);
 }
