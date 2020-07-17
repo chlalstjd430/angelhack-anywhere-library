@@ -1,6 +1,6 @@
-package com.anglehack.anywhereLibrary.library.dto;
+package com.anglehack.anywhereLibrary.api.library.dto;
 
-import com.anglehack.anywhereLibrary.library.entity.Library;
+import com.anglehack.anywhereLibrary.api.library.entity.Library;
 import com.anglehack.anywhereLibrary.seat.dto.SimpleSeat;
 import com.anglehack.anywhereLibrary.user.dto.SimpleUser;
 import lombok.*;
@@ -35,6 +35,7 @@ public class SimpleLibrary {
                 .owner(SimpleUser.of(library.getOwner()))
                 .hangout(library.getHangout())
                 .seats(seats)
+                .totalPersonnel(library.getTotalPersonnel())
                 .build();
     }
 }

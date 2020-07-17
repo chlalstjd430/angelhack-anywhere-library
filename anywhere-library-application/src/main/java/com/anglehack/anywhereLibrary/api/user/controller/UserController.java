@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("v1/users")
+@RequestMapping("v1/api/users")
 public class UserController {
     @Value("${JWT_SECRET}")
     private String secretKey;

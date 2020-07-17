@@ -1,4 +1,4 @@
-package com.anglehack.anywhereLibrary.library.entity;
+package com.anglehack.anywhereLibrary.api.library.entity;
 
 import com.anglehack.anywhereLibrary.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.user.entity.User;

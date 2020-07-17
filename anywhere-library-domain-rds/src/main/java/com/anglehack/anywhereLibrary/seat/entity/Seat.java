@@ -1,6 +1,6 @@
 package com.anglehack.anywhereLibrary.seat.entity;
 
-import com.anglehack.anywhereLibrary.library.entity.Library;
+import com.anglehack.anywhereLibrary.api.library.entity.Library;
 import com.anglehack.anywhereLibrary.user.entity.User;
 import lombok.*;
 
