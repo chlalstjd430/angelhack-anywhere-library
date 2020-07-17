@@ -22,11 +22,15 @@ public class AuthService {
 
     private final UserRepository userRepository;
 
-
-    public User findUserByAccessToken(String accessToken){
-        Claims claims = JwtTokenProvider.getInstance().decodingToken(accessToken, secretKey);
-        Long userId = JwtTokenProvider.getInstance().getUserIdByClaims(claims, "AccessToken");
+    public User findUserByAccessToken(String accessToken) {
+        Long userId = findUserIdByAccessToken(accessToken);
 
         return userRepository.findById(userId).orElseThrow(UserDoesNotExistException::new);
+    }
+
+    public Long findUserIdByAccessToken(String accessToken) {
+        Claims claims = JwtTokenProvider.getInstance().decodingToken(accessToken, secretKey);
+
+        return JwtTokenProvider.getInstance().getUserIdByClaims(claims, "AccessToken");
     }
 }

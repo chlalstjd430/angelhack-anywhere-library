@@ -12,8 +12,6 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Builder
 @Table(name = "seats")
 public class Seat extends BaseTimeEntity {
     @Id
@@ -31,4 +29,10 @@ public class Seat extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "library_id", nullable = false)
     private Library library;
+
+    @Builder
+    public Seat(User user, Library library){
+        this.user = user;
+        this.library = library;
+    }
 }
