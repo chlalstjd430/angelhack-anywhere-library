@@ -1,4 +1,4 @@
-package com.anglehack.anywhereLibrary.library.exception;
+package com.anglehack.anywhereLibrary.api.library.exception;
 
 import com.anglehack.anywhereLibrary.exception.ConflictException;
 

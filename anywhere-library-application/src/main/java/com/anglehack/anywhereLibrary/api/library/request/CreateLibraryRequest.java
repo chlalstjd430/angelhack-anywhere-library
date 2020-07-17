@@ -1,6 +1,5 @@
-package com.anglehack.anywhereLibrary.library.request;
+package com.anglehack.anywhereLibrary.api.library.request;
 
-import com.anglehack.anywhereLibrary.library.entity.Library;
 import lombok.Getter;
 import lombok.Setter;
 
