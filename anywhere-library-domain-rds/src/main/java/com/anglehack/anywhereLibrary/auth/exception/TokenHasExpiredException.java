@@ -1,4 +1,4 @@
-package com.anglehack.anywhereLibrary.token.exception;
+package com.anglehack.anywhereLibrary.auth.exception;
 
 import com.anglehack.anywhereLibrary.exception.ForbiddenException;
 

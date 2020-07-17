@@ -1,9 +1,9 @@
-package com.anglehack.anywhereLibrary.token;
+package com.anglehack.anywhereLibrary.auth;
 
 
-import com.anglehack.anywhereLibrary.token.dto.AccessToken;
-import com.anglehack.anywhereLibrary.token.exception.TokenHasExpiredException;
-import com.anglehack.anywhereLibrary.token.exception.TokenIsInvalidException;
+import com.anglehack.anywhereLibrary.auth.dto.AccessToken;
+import com.anglehack.anywhereLibrary.auth.exception.TokenHasExpiredException;
+import com.anglehack.anywhereLibrary.auth.exception.TokenIsInvalidException;
 import com.anglehack.anywhereLibrary.user.entity.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

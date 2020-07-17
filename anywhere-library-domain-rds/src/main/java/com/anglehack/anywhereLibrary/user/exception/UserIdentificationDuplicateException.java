@@ -4,7 +4,7 @@ import com.anglehack.anywhereLibrary.exception.ConflictException;
 
 public class UserIdentificationDuplicateException extends ConflictException {
     public UserIdentificationDuplicateException() {
-        this("user identification is already exist");
+        this("user identification is duplicated");
     }
 
     public UserIdentificationDuplicateException(String message) {

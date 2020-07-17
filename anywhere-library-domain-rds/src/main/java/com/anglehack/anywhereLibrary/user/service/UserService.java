@@ -1,16 +1,17 @@
 package com.anglehack.anywhereLibrary.user.service;
 
-import com.anglehack.anywhereLibrary.token.SHA256Util;
+import com.anglehack.anywhereLibrary.auth.JwtTokenProvider;
+import com.anglehack.anywhereLibrary.auth.SHA256Util;
 import com.anglehack.anywhereLibrary.user.entity.User;
 import com.anglehack.anywhereLibrary.user.exception.PasswordDoesNotMatchException;
 import com.anglehack.anywhereLibrary.user.exception.UserDoesNotExistException;
 import com.anglehack.anywhereLibrary.user.exception.UserIdentificationDuplicateException;
 import com.anglehack.anywhereLibrary.user.exception.UserNicknameDuplicateException;
 import com.anglehack.anywhereLibrary.user.repository.UserRepository;
+import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor

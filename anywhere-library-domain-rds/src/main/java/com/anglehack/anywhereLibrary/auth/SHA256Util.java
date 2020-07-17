@@ -1,4 +1,4 @@
-package com.anglehack.anywhereLibrary.token;
+package com.anglehack.anywhereLibrary.auth;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
