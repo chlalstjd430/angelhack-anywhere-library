@@ -8,6 +8,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class CreateLibraryResponse {
+public class GetLibraryResponse {
     private SimpleLibrary library;
 }

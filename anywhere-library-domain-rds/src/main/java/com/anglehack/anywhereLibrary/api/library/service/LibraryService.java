@@ -1,6 +1,7 @@
 package com.anglehack.anywhereLibrary.api.library.service;
 
 import com.anglehack.anywhereLibrary.api.library.entity.Library;
+import com.anglehack.anywhereLibrary.api.library.exception.LibraryDoesNotExistException;
 import com.anglehack.anywhereLibrary.api.library.exception.LibraryNameDuplicateException;
 import com.anglehack.anywhereLibrary.api.library.repository.LibraryRepository;
 import lombok.AllArgsConstructor;
@@ -28,5 +29,9 @@ public class LibraryService {
 
     public Page<Library> findAll(Pageable pageable) {
         return libraryRepository.findAll(pageable);
+    }
+
+    public Library getLibrary(Long libraryId) {
+        return libraryRepository.findById(libraryId).orElseThrow(LibraryDoesNotExistException::new);
     }
 }

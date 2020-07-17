@@ -1,5 +1,6 @@
 package com.anglehack.anywhereLibrary.api.library.entity;
 
+import com.anglehack.anywhereLibrary.api.common.entity.BaseTimeEntity;
 import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.api.user.entity.User;
 import lombok.*;
@@ -15,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Table(name = "libraries")
-public class Library {
+public class Library extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -5,7 +5,7 @@ import com.anglehack.anywhereLibrary.api.auth.service.AuthService;
 import com.anglehack.anywhereLibrary.api.library.dto.SimpleLibrary;
 import com.anglehack.anywhereLibrary.api.library.entity.Library;
 import com.anglehack.anywhereLibrary.api.library.request.CreateLibraryRequest;
-import com.anglehack.anywhereLibrary.api.library.response.CreateLibraryResponse;
+import com.anglehack.anywhereLibrary.api.library.response.GetLibraryResponse;
 import com.anglehack.anywhereLibrary.api.library.service.LibraryService;
 import com.anglehack.anywhereLibrary.api.user.entity.User;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class LibraryController {
     @ApiOperation("도서관 생성")
     @PostMapping("/library")
     @ResponseStatus(HttpStatus.CREATED)
-    public CreateLibraryResponse signUp(
+    public GetLibraryResponse signUp(
         @RequestHeader String accessToken,
         @RequestBody CreateLibraryRequest createLibraryRequest
     ) {
@@ -44,7 +44,7 @@ public class LibraryController {
                 .build();
         library = libraryService.create(library);
 
-        return new CreateLibraryResponse(SimpleLibrary.of(library));
+        return new GetLibraryResponse(SimpleLibrary.of(library));
     }
 
     @ApiOperation("도서관 조회")
@@ -69,6 +69,15 @@ public class LibraryController {
                 .totalLibraries(searchResult.getTotalPages())
                 .totalPage(searchResult.getTotalPages())
                 .build();
+    }
+
+    @ApiOperation("도서관 상세 조회")
+    @GetMapping("/{libraryId}")
+    @ResponseStatus(HttpStatus.OK)
+    public GetLibraryResponse getLibrary(@PathVariable Long libraryId) {
+        Library library = libraryService.getLibrary(libraryId);
+
+        return new GetLibraryResponse(SimpleLibrary.of(library));
     }
 
 }
