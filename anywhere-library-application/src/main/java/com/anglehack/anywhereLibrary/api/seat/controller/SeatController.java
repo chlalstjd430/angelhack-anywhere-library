@@ -6,6 +6,7 @@ import com.anglehack.anywhereLibrary.api.library.service.LibraryService;
 import com.anglehack.anywhereLibrary.api.seat.dto.SimpleSeat;
 import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.api.seat.exception.ExceedSeatException;
+import com.anglehack.anywhereLibrary.api.seat.request.UpdateSeatTimeRequest;
 import com.anglehack.anywhereLibrary.api.seat.response.ChooseSeatResponse;
 import com.anglehack.anywhereLibrary.api.seat.service.SeatService;
 import com.anglehack.anywhereLibrary.api.user.entity.User;
@@ -45,6 +46,21 @@ public class SeatController {
                     .user(user)
                     .build()
             )
+        );
+
+        return new ChooseSeatResponse(seat);
+    }
+
+    @ApiOperation("도서관 좌석 시간 업데이트")
+    @PatchMapping("/{libraryId}/seats/{seatId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ChooseSeatResponse updateSeatTime(
+        @PathVariable Long libraryId,
+        @PathVariable Long seatId,
+        @RequestBody UpdateSeatTimeRequest updateSeatTimeRequest
+    ) {
+        SimpleSeat seat =  seatService.updateSeatTime(
+            libraryId, seatId, updateSeatTimeRequest.getLearningTime(), updateSeatTimeRequest.getRestTime()
         );
 
         return new ChooseSeatResponse(seat);

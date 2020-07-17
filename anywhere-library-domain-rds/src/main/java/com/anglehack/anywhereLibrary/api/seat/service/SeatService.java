@@ -3,11 +3,13 @@ package com.anglehack.anywhereLibrary.api.seat.service;
 import com.anglehack.anywhereLibrary.api.seat.dto.SimpleSeat;
 import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.api.seat.exception.AlreadyUserHaveSeatException;
+import com.anglehack.anywhereLibrary.api.seat.exception.SeatDoesNotExistException;
 import com.anglehack.anywhereLibrary.api.seat.repository.SeatRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,14 @@ public class SeatService {
 
     public Seat create(Seat seat) {
         return seatRepository.save(seat);
+    }
+
+    public SimpleSeat updateSeatTime(Long libraryId, Long seatId, LocalTime learningTime, LocalTime restTime) {
+        Seat seat = seatRepository.findByIdAndLibraryId(seatId, libraryId).orElseThrow(SeatDoesNotExistException::new);
+        seat.setLearningTime(learningTime);
+        seat.setRestTime(restTime);
+
+        return SimpleSeat.of(seat);
     }
 
     public List<SimpleSeat> getSeatsByLibrary(Long libraryId) {
