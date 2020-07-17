@@ -1,13 +1,13 @@
 package com.anglehack.anywhereLibrary.api.library.controller;
 
 import com.anglehack.anywhereLibrary.api.library.response.SearchLibrariesResponse;
-import com.anglehack.anywhereLibrary.auth.service.AuthService;
+import com.anglehack.anywhereLibrary.api.auth.service.AuthService;
 import com.anglehack.anywhereLibrary.api.library.dto.SimpleLibrary;
 import com.anglehack.anywhereLibrary.api.library.entity.Library;
 import com.anglehack.anywhereLibrary.api.library.request.CreateLibraryRequest;
 import com.anglehack.anywhereLibrary.api.library.response.CreateLibraryResponse;
 import com.anglehack.anywhereLibrary.api.library.service.LibraryService;
-import com.anglehack.anywhereLibrary.user.entity.User;
+import com.anglehack.anywhereLibrary.api.user.entity.User;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

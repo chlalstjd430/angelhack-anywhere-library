@@ -1,7 +1,6 @@
 package com.anglehack.anywhereLibrary.api.user.request;
 
-import com.anglehack.anywhereLibrary.user.entity.User;
-import lombok.Getter;
+import com.anglehack.anywhereLibrary.api.user.entity.User;
 import lombok.Setter;
 
 @Setter

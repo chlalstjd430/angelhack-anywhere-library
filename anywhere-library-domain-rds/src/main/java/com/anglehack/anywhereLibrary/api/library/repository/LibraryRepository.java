@@ -1,6 +1,6 @@
 package com.anglehack.anywhereLibrary.api.library.repository;
 
-import com.anglehack.anywhereLibrary.common.repository.ExtendRepository;
+import com.anglehack.anywhereLibrary.api.common.repository.ExtendRepository;
 import com.anglehack.anywhereLibrary.api.library.entity.Library;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

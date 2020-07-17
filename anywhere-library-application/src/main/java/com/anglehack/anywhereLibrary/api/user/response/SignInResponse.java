@@ -1,7 +1,7 @@
 package com.anglehack.anywhereLibrary.api.user.response;
 
-import com.anglehack.anywhereLibrary.auth.dto.AccessToken;
-import com.anglehack.anywhereLibrary.user.dto.SimpleUser;
+import com.anglehack.anywhereLibrary.api.auth.dto.AccessToken;
+import com.anglehack.anywhereLibrary.api.user.dto.SimpleUser;
 import lombok.*;
 
 @AllArgsConstructor

@@ -1,7 +1,7 @@
 package com.anglehack.anywhereLibrary.api.library.entity;
 
-import com.anglehack.anywhereLibrary.seat.entity.Seat;
-import com.anglehack.anywhereLibrary.user.entity.User;
+import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
+import com.anglehack.anywhereLibrary.api.user.entity.User;
 import lombok.*;
 
 import javax.persistence.*;
