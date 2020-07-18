@@ -3,7 +3,7 @@
 
 [swagger](https://angelhack-anywhere-library.herokuapp.com/swagger-ui.html)
 
-# 📂 프로젝트 구조
+## 📂 프로젝트 구조
 - anywhere-library-application
   - api 모듈
 - anywhere-library-domain
@@ -11,10 +11,10 @@
 - anywhere-library-core
   - 모든 모듈에서 사용되는 공통 모듈
 
-# 💻 기술 스택
+## 💻 기술 스택
 - java8, spring boot2.3, jpa, mysql, travis ci, heroku
 
-# ⚒ CI/CD
+## ⚒ CI/CD
 - travis,heroku를 이용한 CI/CD 적용
   1. 브랜치에서 작업 후 push
   2. travis ci를 이용하여 빌드테스트
