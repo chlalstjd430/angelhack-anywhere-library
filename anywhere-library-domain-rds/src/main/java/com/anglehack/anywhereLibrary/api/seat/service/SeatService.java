@@ -1,5 +1,6 @@
 package com.anglehack.anywhereLibrary.api.seat.service;
 
+import com.anglehack.anywhereLibrary.api.library.exception.LibraryDoesNotExistException;
 import com.anglehack.anywhereLibrary.api.seat.dto.SimpleSeat;
 import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.api.seat.exception.AlreadyUserHaveSeatException;
@@ -23,24 +24,17 @@ public class SeatService {
         return seatRepository.save(seat);
     }
 
-    public SimpleSeat updateSeatTime(Long libraryId, Long seatId, LocalTime learningTime, LocalTime restTime) {
-        Seat seat = seatRepository.findByIdAndLibraryId(seatId, libraryId).orElseThrow(SeatDoesNotExistException::new);
+    public SimpleSeat updateSeatTime(Long libraryId, Long seatId, Long userId, LocalTime learningTime, LocalTime restTime) {
+        Seat seat = seatRepository.findByIdAndLibraryIdAndUserId(seatId, libraryId, userId)
+                .orElseThrow(LibraryDoesNotExistException::new);
         seat.setLearningTime(learningTime);
         seat.setRestTime(restTime);
 
         return SimpleSeat.of(seat);
     }
 
-    public List<SimpleSeat> getSeatsByLibrary(Long libraryId) {
-        List<SimpleSeat> seats = new ArrayList<>();
-        seatRepository.findAllByLibraryId(libraryId).forEach(
-                seat -> {
-                    if (seat != null)
-                        seats.add(SimpleSeat.of(seat));
-                }
-        );
-
-        return seats;
+    public void deleteSeat(Long seatId) {
+        seatRepository.deleteById(seatId);
     }
 
     public void checkUserHasSeat(Long userId) {

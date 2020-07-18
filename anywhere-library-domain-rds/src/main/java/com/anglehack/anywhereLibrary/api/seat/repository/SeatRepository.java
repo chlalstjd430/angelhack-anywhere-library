@@ -13,5 +13,7 @@ public interface SeatRepository extends ExtendRepository<Seat> {
 
     Optional<Seat> findByIdAndLibraryId(Long seatId, Long libraryId);
 
+    Optional<Seat> findByIdAndLibraryIdAndUserId(Long seatId, Long libraryId, Long userId);
+
     List<Seat> findAllByLibraryId(Long libraryId);
 }
