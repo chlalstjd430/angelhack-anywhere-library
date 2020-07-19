@@ -1,21 +1,20 @@
 package com.anglehack.anywhereLibrary.api.seat.controller;
 
-import com.anglehack.anywhereLibrary.api.auth.service.AuthService;
-import com.anglehack.anywhereLibrary.api.library.entity.Library;
-import com.anglehack.anywhereLibrary.api.library.service.LibraryService;
-import com.anglehack.anywhereLibrary.api.seat.dto.SimpleSeat;
-import com.anglehack.anywhereLibrary.api.seat.entity.Seat;
+import com.anglehack.anywhereLibrary.domain.auth.service.AuthService;
+import com.anglehack.anywhereLibrary.domain.library.entity.Library;
+import com.anglehack.anywhereLibrary.domain.library.service.LibraryService;
+import com.anglehack.anywhereLibrary.domain.seat.dto.SimpleSeat;
+import com.anglehack.anywhereLibrary.domain.seat.entity.Seat;
 import com.anglehack.anywhereLibrary.api.seat.exception.ExceedSeatException;
 import com.anglehack.anywhereLibrary.api.seat.request.UpdateSeatTimeRequest;
 import com.anglehack.anywhereLibrary.api.seat.response.ChooseSeatResponse;
-import com.anglehack.anywhereLibrary.api.seat.service.SeatService;
-import com.anglehack.anywhereLibrary.api.user.entity.User;
-import com.anglehack.anywhereLibrary.api.user.entity.UserLearningTime;
-import com.anglehack.anywhereLibrary.api.user.service.UserLearningTimeService;
+import com.anglehack.anywhereLibrary.domain.seat.service.SeatService;
+import com.anglehack.anywhereLibrary.domain.user.entity.User;
+import com.anglehack.anywhereLibrary.domain.user.entity.UserLearningTime;
+import com.anglehack.anywhereLibrary.domain.user.service.UserLearningTimeService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -66,7 +65,7 @@ public class SeatController {
     ) {
         User user = authService.findUserByAccessToken(accessToken);
 
-        SimpleSeat seat =  seatService.updateSeatTime(
+        SimpleSeat seat = seatService.updateSeatTime(
                 libraryId, seatId, user.getId(), updateSeatTimeRequest.getLearningTime(), updateSeatTimeRequest.getRestTime()
         );
         UserLearningTime userLearningTime = UserLearningTime.builder()
