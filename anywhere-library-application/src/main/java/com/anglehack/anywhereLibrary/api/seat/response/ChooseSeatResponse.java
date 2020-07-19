@@ -1,6 +1,6 @@
 package com.anglehack.anywhereLibrary.api.seat.response;
 
-import com.anglehack.anywhereLibrary.api.seat.dto.SimpleSeat;
+import com.anglehack.anywhereLibrary.domain.seat.dto.SimpleSeat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
